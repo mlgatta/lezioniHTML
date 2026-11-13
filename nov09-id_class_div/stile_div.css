@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+#menu {
+	background-color: #030695; /* colore di sfondo del menù */
+	width: 100%;
+	height: 50px;
+	position: fixed; /* blocco il div nella pagina */
+	z-index: 10; /* porto il div fixato in primo piano */
+	top: 0px; /* aggancio il div al bordo superiore della finestra del browser */
+	left: 0px; /* aggancio il div al bordo sinistro della finestra del browser */
+	color: white; /* testo bianco */
+	font-family: Arial;
+	font-size: 24px;
+	padding-top: 10px; /* scendo di 10px con il contenuto del div; ATTENZIONE: aumenta l'altezza del div */
+	padding-left: 10px; /* distacco di 10px (dal bordo sinistro) il contenuto del div */
+}
+
+.foto {
+	position: relative; /* posizionamento necessario per posizionare le immagini all'interno */
+	float: left; /* div affiancati */
+	width: 300px; /* larghezza di tutti i div class foto */
+	height: 300px; /* altezza di tutti i div class foto */
+	margin: 10px;
+	border: 2px solid #030695;
+}
+
+.foto:hover { /* definisco cosa voglio che succeda al passaggio del mouse */
+	background-color: #030695; /* il div si colora */
+}
+
+/* stessa classe per gestire immagini differenti tra loro da inserire in div uguali tra loro */
+.prodotto {
+	position: absolute; /* per tenere conto dell'elemento contenitore che ha position relative (rigo 19) */
+	
+	/* stiro l'immagine sui bordi del div contenitore */
+	top: 0px; 
+	right: 0px; 
+	bottom: 0px; 
+	left: 0px; 
+	
+	margin: auto; /* centramento dell'immagine */
+	
+	/* serie di impostazioni per gestire le varie forme e dimensioni di immagini */
+	min-width: auto; /* larghezza minima immagine automatica, ma.. */
+	max-width: 100%; /* ... al massimo quanto è largo il div contenitore */
+	max-height: 100%; /* stesso discorso per l'altezza */
+	width: auto; /* larghezza automatica se possibile */
+	height: auto; /* altezza automatica se possibile */
+}

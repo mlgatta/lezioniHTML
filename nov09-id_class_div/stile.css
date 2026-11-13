@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+body {
+	background-color: #3a77cc; /* sfondo dell'intera pagina*/
+	font-family: Tahoma; /* imposto il font di tutta la pagina*/
+	color: orange; /* imposto il colore di tutti i testi */
+	font-size: 32px; /* imposto la dimensione di tutti i testi */
+}
+
+/* inizio codice preso da Google Fonts */
+.redaction-50-regular {
+  font-family: "Redaction 50", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.redaction-50-bold {
+  font-family: "Redaction 50", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.redaction-50-regular-italic {
+  font-family: "Redaction 50", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+/* fine codice preso da Google Fonts */
+
+h2 {
+	font-family: "Redaction 50"; /* sovrascrive rigo 5 */
+	color: blue; /* sovrascrivo rigo 6 */
+	text-align: center;
+}
+
+p {
+	color: #990000; /* sovrascrivo rigo 6 */
+	font-size: 20px; /* sovrascrivo rigo 7 */
+}
+
+.dispari {
+	color: green; /* sovrascrivo rigo 37 */
+}
+
+.pari {
+	color: white; /* sovrascrivo rigo 37 */
+}
+
+.titoli {
+	font-family: "Lucida Console", Courier; /* sovrascrivo  rigo 5: se non trova Lucida Console, utilizzerà la seconda scelta, Courier */
+	font-style: italic; /* testo in corsivo */
+}
+
+a {
+	color: black; /* cambio il colore predefinito dei link testuali*/
+	font-size: 16px; /* sovrascrivo rigo 38 */
+}
+
+#niente {
+	text-decoration: none; /* tolgo la sottolineatura al link */
+}
+
+table {
+	border: 2px dashed #1a00fd; /* formatto bordo tabella: spessore, linea tratteggiata e colore */ /* se voglio la linea continua è "solid" */
+	background-color: white; /* sovrascrivo rigo 4 */
+	margin-left: auto; /* centro la tabella da sinistra*/
+	margin-right: auto; /* centro la tabella da destra */
+}
+
+td {
+	text-align: center; /* centramento del contenuto delle celle */
+	border-bottom: 4px dotted red; /* formatto bordo inferiore celle: spessore, linea puntinata, rossa */
+	border-right: 2px solid #03fb1f; /* formatto bordo destro celle: spessore, linea continua, verde */
+}
+
+.colorami {
+	background-color: #3a77cc; /* sovrascrivo rigo 65, riutilizzando il colore di sfondo del body */
+}
