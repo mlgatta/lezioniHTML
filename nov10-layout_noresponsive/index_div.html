@@ -1,0 +1,52 @@
+<!doctype html> 
+<html> 
+<head> 
+	<meta charset="utf-8" /> 
+	<title>Layout con div</title> 
+	<link href="stile_div.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="contenitore"> <!-- contenitore dell'intero layout del sito -->
+		<div id="testa"> <!-- parte superiore della pagina web -->
+			Nome del mio sito
+		</div>
+		<div id="contenuto"> <!-- parte centrale della pagina web -->
+			<div id="menu"> <!-- contenitore del menù di navigazione -->
+				<ul> <!-- apro un elenco puntato -->
+					<li><a href="#">Home</a></li> <!-- voce dell'elenco, href="#" link verso la pagina stessa -->
+					<li><a href="#">Chi siamo</a></li>
+					<li><a href="#">Dove siamo</a></li>
+					<li><a href="#">Contatti</a></li>
+					<li><a href="#">Lavora con noi</a></li>
+				</ul>	
+			</div>
+			<div id="principale"> <!-- zona del layout i cui contenuti cambiano a ogni pagina del sito -->
+				L'azienda è nata nel 1975 e si occupa della produzione e vendita di:
+				<ul>
+				<li>Camicie</li>
+				<li>Pantaloni</li>
+				<li>Maglie</li>
+				<li>Costumi da bagno</li>
+				<li>Cravatte</li>
+				<li>Borse e accessori</li>
+				</ul>
+			</div> <!-- fine div principale -->
+		</div> <!-- fine div contenuto -->
+		<div id="piede"> <!-- parte di fondo della pagina web -->
+			<div id="primo">
+				Tel: <a href="tel:+390809149839">080.9149839</a><br /> <!-- link funzionante per chiamare -->
+				Fax: 080.9901234<br />
+				E-mail: <a href="mail.to:info@miosito.it">info@miosito.it</a> <!--  link funzionante per inviare una e-mail -->
+			</div>
+			<div id="secondo">
+				P. IVA: 1234567890
+			</div>
+			<div id="terzo">
+				<img src="facebook.png" class="social" alt="Pagina Facebook" />
+				<img src="instagram.png" class="social" alt="Profilo Instagram" />
+				<img src="youtube.png" class="social" alt="Canale YouTube" />
+			</div>	
+		</div>
+	</div> 
+</body>
+</html> 

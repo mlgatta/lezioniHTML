@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+body {
+	background-color: #eeeeee;
+	font-family: Helvetica, Verdana; /* Helvetica font principale, Verdana font alternativo */
+}
+
+#contenitore {
+	background-color: #ffffff; /* sovrascrivo rigo 4 */
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#testa {
+	background-color: #66ccff; /*sovrascrivo rigo 9 */
+	color: #ffffff; /* colore del titolo */
+	text-align: center; /* centramento del testo */
+	font-size: 40px; /* dimensione del titolo */
+	padding: 10ppx; /* distanza dai bordi */
+}
+
+#contenuto {
+	padding: 10px;
+}
+
+#menu {
+	width: 180px;
+	float: left;
+}
+
+#principale {
+	width: 600px; /* 800 - 180 - 2x10 */
+	float: left;
+}
+
+#piede {
+	width: 800px;
+	height: 76px;
+	clear: both; /* spezzo i float precedenti, forzo l'interruzione degli affiancamenti */
+	background-color: #888888;
+	color: #ffffff;
+}
+
+#primo {
+	width: 200px;
+	float: left;
+	text-align: left;
+	padding: 10px;
+}
+
+#secondo {
+	width: 300px;
+	float: left;
+	text-align: center;
+	padding: 26px 10px 10px 10px; /* 26px: mi interessa centrare verticalmente il testo */
+}
+
+#terzo {
+	width: 240px;
+	float: left;
+	text-align: right;
+	padding: 10px;
+}
+
+/* formato esclusivamente le classi social associate alle img (caso generale) */
+img.social{
+	width: 32px;
+	height: 32px;
+	margin-left: 5px;
+	padding-top: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* formato sclusivamente il menù presente nel div menù */
+#menu ul {
+	list-style: none; /* tolgo i pallini dall'elenco puntato del menù */
+	padding: 2px; /* avvicino l'elenco al bordo del div */
+}
+
+/* N.B. : per togliere i pallini ai <li>, in CSS si interviene sul selector di <ul> */
