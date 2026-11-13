@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form di HTML5</title>
+</head>
+<body>
+	<form method="post" action="mailto:martinalagatta@gmail.com" name="form2" id="form2">
+		<p>Colore: <input type="color" name="colore" /></p>
+		<p>Intervallo: 1 <input type="range" name="voto" min="1" max="10" value="6" />10</p>
+		<p>E-mail: <input type="email" name="email" placeholder="Scrivi il tuo indirizzo e-mail" size="32" /></p>
+		<p>Telefono: <input type="tel" name="telefono" placeholder="Scrivi il tuo recapito telefonico" size="32" /></p>
+		<p>Numero: (anno di nascita) <input type="number" name="numero" min="1920" max="2026" value="2000" /></p>
+		<fieldset> <!-- set di campi del form con uno scopo comune -->
+			<legend>Dati anagrafici</legend>
+			<p>Nome: <input type="text" name="nome" size="26" /><br />
+			Cognome <input type="text" name="cognome" size="26" required /></p>
+		</fieldset>
+		<p><input type="submit" value="Invia" /> <input type="reset" value="Cancella" /></p>
+	</form>
+</body>
+</html>

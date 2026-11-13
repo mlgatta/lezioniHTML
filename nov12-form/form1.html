@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Primo form</title>
+	<style> /* il css che immetto qui, funziona solo su questa pagina html */
+		table {
+			width: 600px;
+			border: 2px solid blue;		
+		}
+		
+		td {
+			border: 1px dotted black;
+			padding: 2px;
+		}
+		
+		.sx { /* formazione celle della colonna sinistra */
+			width: 35%;
+		}
+		
+		.dx { /* formazione celle della colonna destra */
+			width: 65%;
+		}
+		
+		.casella { /* formattazione dei componenti del form */
+			font-family: arial;
+			color: #dddddd;
+			background-color: black;
+			accent-color: black; /* sfondo della checkbox */
+		}
+		
+		.casella:focus { /* formattazione del componente del form che si sta compilando */
+			outline: none; /* tolgo l'arrotondamento del bordo */
+		}
+		
+		textarea {
+			resize: none; /* impedisco la deformazione della textarea */
+		}
+	</style>
+</head>
+<body>
+	<form method="post" action="mailto:martinalagatta@gmail.com" enctype="multipart/form-data" name="form1" id="form1"> 
+	<!-- method: come i dati immessi nel form devono transitare fuori dalla pagina html corrente
+		action: la pagina web dove inviare i dati del form, o un indirizzo e-mail
+		enctype (facoltativo: da usare se il form prevede allegati
+		name, id: identificativi del form, utili se la pagima ha più form...-->
+		<table>
+			<tbody>
+				<tr>
+					<td class="sx">Nome</td>
+					<td class="dx"><input class="casella" type="text" name="nome" id="nome" placeholder="Scrivi il tuo nome" /></td> <!-- casella di testo: se immetto Martina, il form spedirà "nome:Martina" -->
+				</tr>
+				<tr>
+					<td class="sx">Cognome</td>
+					<td class="dx"><input class="casella" type="text" name="cognome" id="cognome" required /></td>
+				</tr>
+				<tr>
+					<td class="sx">Genere</td>
+					<td class="dx">
+						<input class="casella" type="radio" name="genere" value="m" />Maschio |
+						<input class="casella" type="radio" Name="genere" value="f" /> Femmina |
+						<input class="casella" type="radio" name="genere" value="a" />Altro
+					</td> <!-- i radio della stessa richiesta devono condividere il name -->
+				</tr>
+				<tr>
+					<td class="sx">Interessi</td>
+					<td class="dx">
+						<input class="casella" type="checkbox" name="cinema" value="ok" />Cinema |
+						<!-- se seleziono questa casella, il form invia cinema=ok, altrimenti non invia -->
+						<input class="casella" type="checkbox" name="musica" value="ok" />Musica |
+						<input class="casella" type="checkbox" name="lettura" value="ok" />Lettura |
+						<input class="casella" type="checkbox" name="sport" value="ok" />Sport<br />
+						<input class="casella" type="checkbox" name="informatica" value="ok" />Informatica
+					</td>
+				</tr>
+				<tr>
+					<td class="sx">Stato civile</td>
+					<td class="dx">
+						<input class="casella" type="radio" name="stato" value="cg" />Coniugato/a |
+						<input class="casella" type="radio" name="stato" value="cv" />Convivente |
+						<input class="casella" type="radio" name="stato" value="cn" />Celibe/Nubile<br />
+						<input class="casella" type="radio" name="stato" value="ve" />Vedovo/a
+					</td>
+				</tr>
+				<tr>
+					<td class="sx">Componenti nucleo familiare</td>
+					<td class="dx">
+						<select name="famiglia" class="casella">
+							<option class="casella" selected hidden="true">Quante persone in famiglia te incluso/a?</option> <!-- alternativo a hidden è disabled -->
+							<!-- selected: preselezionato, hidden: si nasconde per non poterlo scegliere -->
+							<option class="casella" value="1">Una</option>
+							<option class="casella" value="2">Due</option>
+							<option class="casella" value="3">Tre</option>
+							<option class="casella" value="4">Quattro</option>
+							<option class="casella" value="5+">Cinque o più</option>
+							<!-- scegliendo Tre, il form invia famiglia=3 (invia il value se c'è, altrimenti invia il testo visualizzato nel browser) -->
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="sx">Username</td>
+					<td class="dx"><input class="casella" type="text" name="username" /></td>
+				</tr>
+				<tr>
+					<td class="sx">Password</td>
+					<td class="dx"><input class="casella" type="password" name="password" /></td>
+				</tr>
+				<tr>
+					<td class="sx">Messaggio per lo staff</td>
+					<td class="dx">
+						<textarea class="casella" name="messaggio" rows="5" cols="40">Scrivi qui</textarea>
+						<!-- dimensioni gestibili anche da CSS sotto forma di width e height -->
+					</td>
+				</tr>
+				<tr>
+					<td class="sx">Allega CV</td>
+					<td class="dx"><input class="casella" type="file" name="cv" /></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="sx">&nbsp;</td>
+					<td class="dx">
+						<input class="casella" type="submit" value="Invia" /> <!-- invio del form predefinito -->
+						<input class="casella" type="button" value="Invia (da programmare)" /> <!-- invia tramite Javascript, quando i dati immessi devono essere prima controllati -->
+						<input class="casella" type="reset" value="Cancella" /> <!-- si resetta il form -->
+				</tr>
+			</tfoot>
+		</table>
+	</form>
+</body>
+</html>

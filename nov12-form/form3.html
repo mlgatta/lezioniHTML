@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date nei form</title>
+</head>
+<body>
+	<form method="post" action="#" name="form_date" id="form_date">
+		<label for="Data">Data: </label><input type="date" name="Data" id="Data" /><br />
+		<!-- il for della label deve coincidere con l'id dell'input -->
+		<label for="Mese">Mese: </label><input type="month" name="Mese" id="Mese" /><br />
+		<label for="Ora">Ora: </label><input type="time" name="Ora" id="Ora" /><br />
+		<label for="DataOra">Data e ora: </label><input type="datetime-local" name ="DataOra" id="DataOra" /><br />
+		<input type="submit" value="Invia" /> <input type="reset" value="Cancella" /> 
+	</form>
+</body>
+</html>
