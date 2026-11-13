@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap 1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> <!-- impostazioni per la responsività di Bootstrap sui vari browser -->
+	<link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="miocss.css" /> <!-- css nostro, per integrazioni e sovrascritture di Bootstrap, va inserito dopo il css di bootstrap perché altrimenti non viene caricato -->
+</head>
+<body>
+	<div class="container"> <!-- class container è una classe di Bootstrap! -->
+		<div class="testo mt-3">Primo div</div> <!-- mt-3: margine superiore di 16px -->
+		<div class="testo pt-2">Secondo div</div> <!-- pt-3: padding superiore di 8px -->
+		<div class="testo mb-3">Terzo div</div> <!-- mb-3: margine inferiore di 16px -->
+		<div style="clear: both;"></div> <!--  spezzo il flusso dei float -->
+	<!-- inizia la griglia di Bootstrap -->
+		<div class="row">
+			<div class="col-4"> <!-- div colonna di Bootstrap larga 4/12 -->
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel dolor laoreet auctor. Maecenas ultricies enim non tristique finibus. Suspendisse a quam ullamcorper, vestibulum velit sit amet, laoreet lectus. Cras vel vestibulum risus, non lacinia nisi. Pellentesque volutpat magna non aliquam convallis. Fusce metus tortor, sodales nec feugiat.
+			</div>
+			<div class="col-4"> <!-- div colonna di Bootstrap larga 4/12 -->
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel dolor laoreet auctor. Maecenas ultricies enim non tristique finibus. Suspendisse a quam ullamcorper, vestibulum velit sit amet, laoreet lectus. Cras vel vestibulum risus, non lacinia nisi. Pellentesque volutpat magna non aliquam convallis. Fusce metus tortor, sodales nec feugiat.
+			</div>
+			<div class="col-4"> <!-- div colonna di Bootstrap larga 4/12 -->
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel dolor laoreet auctor. Maecenas ultricies enim non tristique finibus. Suspendisse a quam ullamcorper, vestibulum velit sit amet, laoreet lectus. Cras vel vestibulum risus, non lacinia nisi. Pellentesque volutpat magna non aliquam convallis. Fusce metus tortor, sodales nec feugiat.
+			</div> <!-- 3 div da col-4 riempiono la row che è da 12 -->
+		</div>
+		<div class="row">
+			<div class="col-3" style="background-color: #220ab7; color: #ffffff;">
+			col-3 con padding predefinito da Bootstrap
+			</div>
+			<div class="col-3" style="background-color: #547013; color: #ffffff;">
+			col-3 con padding predefinito da Bootstrap
+			</div>
+			<div class="col-3 rounded-top" style="background-color: #111111; color: #ffffff;">
+			col-3 con padding predefinito da Bootstrap
+			</div>
+			<div class="col-3" style="background-color: #ede0e1; color: #000000;">
+			col-3 con padding predefinito da Bootstrap
+			</div>
+		</div>
+		<div class="row g-0"> <!-- g-0 è una classe di Bootstrap che azzera i padding -->
+			<div class="col-3" style="background-color: #220ab7; color: #ffffff;">
+			col-3 senza padding
+			</div>
+			<div class="col-3" style="background-color: #547013; color: #ffffff;">
+			col-3 senza padding
+			</div>
+			<div class="col-3" style="background-color: #111111; color: #ffffff;">
+			col-3 senza padding
+			</div>
+			<div class="col-3" style="background-color: #ede0e1; color: #000000;">
+			col-3 senza padding
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-lg-12 col-xl-6 display-2" style="background-color: #eeeeee">
+				Breakpoint
+			</div>
+		</div>
+		<div class="row">
+			<!-- voglio creare una struttura che passi da 2 div affiancati a 2 div impilati (uno sull'altro) -->
+			<div class="col-md-6 col-sm-12">
+				<div class="row" style="height: 50%;"> <!-- riga dentro un div, dispongo di altri 12/12 -->
+					<div class="col-6 text-uppercase lead" style="background-color: darkgray;">Lorem ipsum dolor sit amet</div> <!-- 6/12 della row interna -->
+					<div class="col-6 text-capitalize" style="background-color: yellow">Lorem ipsum dolor sit amet</div> <!--  12/12 della row interna -->
+				</div>
+				<div class="row" style="height: 50%;">
+					<div class="col-6 text-uppercase" style="background-color: orange;">Lorem ipsum dolor sit amet</div>
+					<div class="col-6" style="background-color: green;">Lorem ipsum dolor sit amet</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-12 rounded-circle" style="background-color: white; color: darkblue;"> <!-- col che riempie la row esterna -->
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu justo vel dolor laoreet auctor. Maecenas ultricies enim non tristique finibus. Suspendisse a quam ullamcorper, vestibulum velit sit amet, laoreet lectus. Cras vel vestibulum risus, non lacinia nisi. Pellentesque volutpat magna non aliquam convallis. Fusce metus tortor, sodales nec feugiat.
+			</div>
+		</div>
+	</div>
+</body>
+</html>

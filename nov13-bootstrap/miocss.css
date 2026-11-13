@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body {
+	background-color: aqua;
+}
+
+.container { /* formattazione integrativa a quella di bootstrap (questa è già una classe formattata in bootstrap.css) */
+	background-color: coral;
+	border: 0px;
+}
+
+.testo { /* classe nostra, non presente in Bootstrap */
+	float: left;
+	width: 31%;
+	border: 1px solid blue;
+	margin: 0px 1%; /* 0px in verticale, 1% in orizzontale */
+	background-color: chartreuse;
+}
+
+.row { /* sovrascrivo una classe di Bootstrap assegnandole un bordo */
+	border: 1px solid white;
+}
