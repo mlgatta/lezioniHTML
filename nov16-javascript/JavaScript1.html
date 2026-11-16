@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript #1</title>
+</head>
+<body>
+	<strong> <!-- porzione di pagina in grassetto per evidenziare gli output di JavaScript -->
+		<script> // qui dentro è codice JavaScript (commento a riga singola)
+			let messaggio; // dichiarazione di una variabile di nome messaggio
+			messaggio = "Buongiorno a tutti!"; // assegno a messaggio il valore indicato a destra dell'uguale
+			document.write("Corso JAVITA156 di Generation<br />");
+			// document è un riferimento (istanza) alla pagina web stessa, di cui vogliamo utilizzare degli elementi oppure svolgerci dentro delle funzioni, come in questo caso; write(): funzione che scrive nella pagina web, nel punto in cui si trova lo script
+			document.write(messaggio); // senza virgolette perché voglio stampare il valore della variabile e non il suo nome
+			document.write(" "); // stampo uno spazio
+			messaggio = 12345; // sovrascrivo il valore di messaggio, cambiandone anche tipo (ora è un numero)!
+			document.write(messaggio); // stampo il nuovo valore di messaggio
+		</script>
+	</strong> <!-- qui sono in HTML --> Corso JAVITA156 di Generation<br />
+	<strong>
+		<script>
+			let nome = "Martina"; // dichiarazione di variabile con assegnazione di un valore (unico passaggio)
+			let cognome = "La Gatta"; // idem
+			document.write(nome + " " + cognome);
+		</script>
+	</strong>
+</body>
+</html>
