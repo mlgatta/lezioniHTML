@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Tavola pitagorica</title>
+	<style>
+		table {
+			font-family: Courier;
+			font-size: 16px;
+			color: white;
+			background-color: #24b014;
+		}
+		
+		td {
+			text-align: center;
+			border: 1px solid white;
+			width: 58px;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<script>
+			// acquisizione delle dimensioni della tabella
+			let righe = Number(prompt("Quante righe desideri?"));
+			let colonne = Number(prompt("Quante colonne desideri?"));
+			
+			// ciclo di stampa delle righe <tr>
+			for (riga = 1; riga <= righe; riga++) {
+				document.write("<tr>"); // apro una riga di tabella
+				
+				// ciclo di stampa delle celle/colonne <td>
+				for (colonna = 1; colonna <= colonne; colonna++) {
+					document.write("<td>" + riga*colonna + "</td>");
+				}	
+				
+				document.write("</tr>");
+			}
+			
+		</script>
+	</table>
+</body>
+</html>

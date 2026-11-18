@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Switch</title>
+</head>
+<body>
+	<!-- recepire nome e voto di uno studente e convertirlo in giudizio -->
+	<script>
+		let nome = prompt("Come si chiama lo studente?");
+		let voto = Number(prompt("Qual è il voto conseguito da " + nome + "?"));
+		let giudizio; // qui salverò il voto convertito
+		
+		switch(voto) { // nelle parentesi scrivo la variabile che intendo processare/switchare
+			// gestisco le insufficienze
+			case 1: // equivale a if(voto == 1), == per l'uguaglianza, = serve per assegnare (rigo 10)
+			case 2: 
+			case 3:
+			case 4:
+			case 5: // equivale a if(voto == 5)
+				giudizio = "Insufficiente"; // se voto è uno dei case sopracitati, giudizio prende il valore "Insufficiente"
+				break; // esco dallo switch perché ho trovato il case analogo al voto
+			// gestisco le sufficienze
+			case 6:
+				giudizio = "Sufficiente";
+				break; // esco dallo switch perché l'ho trovato
+			case 7:
+				giudizio = "Discreto";
+				break;
+			case 8:
+				giudizio = "Buono";
+				break;
+			case 9:
+				giudizio = "Ottimo";
+				break;
+			case 10:
+				giudizio = "Eccellente";
+				break;
+			default: // lo switch entra qui se nessun case soddisfa l'uguaglianza con voto: input sbagliato
+				giudizio = "Input errato / Non classificato"
+				break;
+		}
+		
+		document.write("Il giudizio relativo a " + nome + " è " + giudizio)
+	</script>
+</body>
+</html>

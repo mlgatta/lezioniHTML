@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Array</title>
+</head>
+<body>
+	<h1>Lotteria Generation</h1>
+	<script>
+						// 0				1			2			3			4			5
+	let partecipanti = ["Martina", "Antonella", "Francesco", "Andrea", "Gabriele", "Simone Finazzi"];
+	partecipanti.push("Pietro"); // aggiunta di un elemento all'array già popolato
+	let numero_partecipanti = partecipanti.length; // recupero il numero dei partecipanti
+	
+	document.write ("<h2>" + "Elenco partecipanti" + "</h2>");
+	document.write("<ul>");
+	
+	for (i= 0; i < numero_partecipanti; i++) { // il valore i (contatore) può essere sostituito a piacere
+		document.write("<li>" + partecipanti[i] + "</li>");
+	}
+
+	document.write("</ul>");
+	let vince = Math.floor(Math.random()*numero_partecipanti);
+	document.write("<h2>" + "Il vincitore è " + partecipanti[vince] + "</h2>");
+	</script>
+</body>
+</html>

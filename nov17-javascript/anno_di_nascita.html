@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Anno di nascita</title>
+</head>
+<body>
+	<!-- voglio realizzare un select che consenta di scegliere il proprio anno di nascita -->
+	<select>
+		<script> 
+		// da qui in poi è JavaScript
+			// versione while
+			document.write("<option selected>" + "Anno di nascita while" + "</option>");	
+			let contatore = 1900 // anno minimo da poter scegliere, nonché contatore del ciclo
+			while (contatore <= 2026) { // finché contatore è minore o uguale a 2026...
+				document.write ("<option>" + contatore + "</option>"); // ... stampo il valore di contatore nell'option
+				contatore++; // incremento il contatore nonché l'anno da visualizzare
+			}
+		</script>
+	</select>
+	<select>
+		<script>
+			// versione for
+			document.write ("<option selected>" + "Anno di nascita for" + "</option>");
+			
+			for (x= 1900; x <= 2026; x++) { // contatore inizializzato; condizione; incremento contatore
+				document.write ("<option>" + x + "</option>");
+			}
+		</script>
+	</select>
+</body>
+</html>

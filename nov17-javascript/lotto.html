@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Estrazioni del lotto</title>
+</head>
+<body>
+	<script>
+		let numero; // creazione variabile numero
+		numero = 10; // assegnazione del valore numerico 10 a numero
+		numero = numero + 5; // incremendo della variabile con salvataggio nella variabile stessa
+		document.write ("Il valore aggiornato della variabile è " + numero + "<br />");
+		
+		// estrazione del lotto
+		// Math.random() genera un numero decimale tra 0 incluso e 1 escluso (simbologia algebrica: [0, 1[)
+		// Math.random()*90 genera un numero decimale tra 0 incluso e 90 escluso
+		// Math.random()*90 + 1 genera un numero decimale tra 1 incluso e 91 escluso (quindi 90 incluso)
+		// Math.floor(Math.random()*90 + 1) genera un numero intero tra 1 e 90
+		numero = Math.floor(Math.random()*90 + 1); // estrazione simulata
+		document.write("<h1>" + "è uscito il numero " + numero + "</h1>");
+	</script>
+	<script>
+		numero = Math.floor(Math.random()*6 + 1);
+		document.write("<h1>" + "Lancio di dado:  " + numero + ".</h1>");
+	</script>
+</body>
+</html>
