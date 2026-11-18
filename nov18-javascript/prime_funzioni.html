@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Prime funzioni JavaScript</title>
+		<style>
+		body {
+			background-color: #1bfc90;
+		}
+		
+		#primo {
+			background-color: #ebf900;
+			height: 200px;
+			width: 200px;
+			color: #ff070b;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#secondo {
+			background-color: #8016c7;
+			height: 200px;
+			width: 200px;
+			color: #000000;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#terzo {
+			background-color: #1d3f18;
+			height: 200px;
+			width: 200px;
+			color: #dddddd;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="primo">
+		Clicca in questo riquadro per eseguire la funzione messaggio(),<br />
+		passaci sopra con il mouse per eseguire il cambio di sfondo, <br />
+		allontanati dal riquadro per ripristinare lo sfondo originale.
+	</div>
+	<div id="secondo">
+		Passa su questo riquadro con il mouse per eseguire la funzione messaggio().
+	</div>
+	<div id="terzo" data-coloreover="#0000ff" data-coloreout="#1d3f18"> <!-- sto preimpostando i colori; quello che scrivo dopo data- è a piacere -->
+		Clicca due volte in questo riquadro per eseguire la funzione messaggio(),<br />
+		passaci sopra con il mouse e poi allontanati per cambiare lo sfondo e poi ripristinarlo.
+	</div>
+	<script>
+		// dato che si dovranno richiamare più volte elementi DOM della pagina (i tre div), posso salvarne i codici di chiamata dentro delle costanti
+		const primo = document.getElementById("primo"); // const primo aggancia il div id="primo" in JavaScript
+		const secondo = document.getElementById("secondo"); // aggancio il div id="secondo" in JavaScript
+		const terzo = document.getElementById("terzo"); // aggancio il div id="terzo" in JavaScript
+		
+		// collego elementi DOM alle funzioni (da scrivere ancora) tramite gli opportuni eventi definiti nei div HTML
+		// N.B. gli eventi si scrivono come testi (con virgolette), le funzioni senza parentesi finali
+		primo.addEventListener("click", messaggio); // traduzione in codice del rigo 41
+		primo.addEventListener("mouseover", sfondo); // traduzione in codice del rigo 42
+		primo.addEventListener("mouseout", ripristinaSfondo); // traduzione in codice del rigo 43
+		secondo.addEventListener("mouseover", messaggio); // traduzione in codice del rigo 46
+		terzo.addEventListener("dblclick", messaggio); // traduzione in codice del rigo 49
+		terzo.addEventListener("mouseover", sfondoDinamico); // traduzione in codice della 1° parte del rigo 50
+		terzo.addEventListener("mouseout", sfondoDinamico); // traduzione in codice della 2° parte del rigo 50
+		
+		// implemento le varie funzioni invocate dagli eventi (righe da 60 a 66)
+		function messaggio() {
+			alert("Benvenuti al corso Generation!"); // alert() è una funzione pronta di JavaScript
+		}
+		
+		function sfondo() {
+			document.getElementById("primo").style.backgroundColor = "#0000ff"; // backgroundColor corrisponde all'attributo CSS background-color
+			/* 
+			document rappresenta la pagina corrente (è una istanza di prime_funzioni.html)
+			getElementById() fa scegliere l'elemento DOM su cui operare, tramite il suo id
+			style collega JavaScript a CSS
+			backgroundColor cambia il valore dell'attributo bakcground-color dell'elemento in oggetto; se non metto l'uguale, effettuo la lettura del colore corrente, che posso eventualmente salvare in una variabile
+			*/
+		}
+		
+		function ripristinaSfondo() {
+			document.getElementById("primo").style.backgroundColor = "#ebf900";
+		}
+		
+		function sfondoDinamico(event) { // event (il nome è a piacere) è l'istantanea dell'innesco della funzione, contiene il tipo di evento, nonché l'elemento DOM in cui si è verificato
+			let elemento = event.currentTarget; // recupero del div id="terzo" perché nel suo tag ho gli attributi data- rigo 48
+			
+			if (event.type == "mouseover") { // se l'evento era mouseover...
+				elemento.style.backgroundColor = elemento.dataset.coloreover; // assegno il colore di data-coloreover (rigo 48)
+			} else if (event.type == "mouseout") { // se l'evento era mouseout..
+				elemento.style.backgroundColor = elemento.dataset.coloreout; // assegno il colore di data-coloreout (rigo 48)
+			}
+			
+		}
+	</script>
+</body>
+</html>
