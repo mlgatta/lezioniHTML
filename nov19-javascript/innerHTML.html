@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Comando innerHTML</title>
+</head>
+<body>
+	<!-- gli input type="button" dovendo essere programmati, possono in alcuni casi trovarsi fuori da un form -->
+	<input type="button" value="Clicca qui" id="button1" />
+	<input type="button" value="Verifica contenuto" id="button2" />
+	<div id="contenuto1" style="height: auto; min-height: 16px; border: 1px solid blue;"></div>
+	<input type="button" value="Clicca qui" id="button3" />
+	<input type="button" value="Verifica contenuto" id="button4" />
+	<div id="contenuto2" style="height: auto; min-height: 16px; border: 1px solid red;">Qui compariranno numeri progressivi e smile:</div>
+	<script>
+		// associo l'evento click a button1
+		document.getElementById("button1").addEventListener("click", riempi1); // riempi1 nome di funzione a piacere
+		
+		// implemento la funzione riempi1 invocata al rigo 17
+		function riempi1() {
+			document.getElementById("contenuto1").innerHTML = "<strong><em>Hai cliccato sul button1</em></strong>";
+			// innerHTML a sinistra di un =  assegna quanto c'è a destra dell'= , al div oggetto del getElementById()
+		}
+		
+		// associo l'evento click a button2
+		document.getElementById("button2").addEventListener("click", verifica1);
+		
+		// implemento la funzione verifica1 invocata al rigo 26
+		function verifica1() {
+			let codice = document.getElementById("contenuto1").innerHTML;
+			// innerHTML a destra di un = , recupera quanto c'è nel div oggetto del getElementbyID
+			alert(codice); // stampo il contenuto di contenuto1 in un alert!
+		}
+		
+		let conta = 1;
+		
+		// associo l'evento click a button3
+		document.getElementById("button3").addEventListener("click", riempi2);
+		
+		// implemento la funzione riempi2 invocata al rigo 38
+		function riempi2() {
+			document.getElementById("contenuto2").innerHTML = document.getElementById("contenuto2").innerHTML + " ciao n° " + conta + "<img src='smile.png' width='32' height='32' />";
+			// innerHTML a destra e a sinistra di un = permette di aggiungere contenuto a quanto già presente
+			conta++;
+		}
+		
+		// associo l'evento click a button4
+		document.getElementById("button4").addEventListener("click", verifica2)
+		
+		// implemento la funzione verifica2 invocata al rigo 48
+		function verifica2() {
+			let codice = document.getElementById("contenuto2").innerHTML;
+			alert(codice)
+		}
+	</script>
+</body>
+</html>

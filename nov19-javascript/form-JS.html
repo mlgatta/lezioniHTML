@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Form e Javascript</title>
+</head>
+<body>
+	<form id="moduloweb" name="modulo" method="post">
+		<p>Seleziona il sito che vuoi visitare: <select name="sito" id="sceglisito">
+			<option selected disabled>Selezionare</option>
+			<option value="https://www.accademiadellevante.org">Accademia del Levante</option>
+			<option value="https://animali75.blogspot.com">Amici animali</option>
+			<option value="https://studiotecnico75.altervista.org">Studio tecnico 75</option>
+		</select></p>
+		<p>Nome: <input type="text" name="nome" id="nome" size="20" /></p>
+		<p>Cognome <input type="text" name="cognome" id="cognome" size="20" /></p>
+		<p>Genere: <input type="radio" name="genere" id="radiom" value="o" /> Maschio |
+					<input type="radio" name="genere" id="radiof" value="a" /> Femmina |
+					<input type="radio" name="genere" id="radiox" value="*" /> Altro</p>
+		<p><input type="button" name="pulsante" id="button" value="Salutami" disabled /></p>
+		<!-- l'input type button va programmato -->
+	</form>
+	<iframe name="mostrasito" width="1024" height="768"><!-- qui apparirà il sito scelto dal select --></iframe>
+	<script>
+		document.getElementById("sceglisito").addEventListener("change", apri); // l'evento per i select è SEMPRE "change"!
+		function apri() {
+			let url = document.modulo.sito.value; // recupero il value del select di name="sito" che sta nel form di name="modulo"
+			window.open(url, "mostrasito"); // open è una funzione JS pronta appartenente alla classe window (analogamente a Math)
+		}
+		
+		const uomo = document.getElementById("radiom"); // acquisisco in JavaScript il 1° radiobutton
+		const donna = document.getElementById("radiof"); // acquisisco in JavaScript il 2° radiobutton
+		const altro = document.getElementById("radiox"); // acquisisco in JavaScript il 3° radiobutton
+		
+		// raccolgo in un array le costanti JS corrispondenti ai tre radiobutton
+		// forEach() associa la function anonima interna a ciascuno dei radiobutton raccolti nell'array
+		// persona è il radiobutton scelto che innesca la funzione: persona varrà uomo, donna, oppure altro
+		[uomo, donna, altro].forEach(function(persona) {
+			persona.addEventListener("click", abilita); // associo l'evento click a ciascuno dei radiobutton
+			function abilita() {
+				document.modulo.pulsante.disabled = false; // attivo il button del form che ha name="pulsante" (confronta rigo 28)
+			}
+		});
+		
+		document.getElementById("button").addEventListener("click", saluta) // associo l'evento click al button con id="button"
+		
+		function saluta() {
+			let nome = document.modulo.nome.value; // recupero quanto immesso dall'utente nell'input text di name="nome"
+			let cognome = document.modulo.cognome.value; // recupero quanto immesso dall'utente nell'input text di name="cognome"
+			// applico un filtro che non saluta utenti che immettono nomi o cognomi presumibilmente falsi perché troppo brevi
+			if (nome.length > 2 && cognome.length > 2) { // se le condizioni sono soddisfatte (&& = entrambe, AND)
+			alert("Benvenut" + document.modulo.genere.value + " nel mio sito " + nome + " " + cognome);
+			} else { // se le condizioni non sono soddisfatte, cioè se l'if è false
+				alert("Il nome o il cognome inseriti sono troppo corti e non possono essere accettati, si prega di riprovare");
+			}
+			
+		}
+	</script>
+</body>
+</html>
