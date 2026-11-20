@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Form anagrafica</title>
+	<style>
+		.casella {
+			margin-left: 5px;
+			margin-top: 10px;
+			margin-right: 15px;
+			margin-bottom: 10px;
+			font-family: Tahoma;
+		}
+		
+		div {
+			background-color: yellow;
+			width: 500px;
+			height: 400px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 50px;
+			text-align: center;
+			font-family: Tahoma;
+		}
+		
+		#submit {
+			float: right;
+			margin-top: 11px;
+		}
+		
+		.risultato {
+			margin-top: 50px;
+			text-align: center;
+		}
+		
+		#risultato { /* introdotto a fini didattici per mostrare come possano coesistere id e class omonimi */
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<form id="form" name="modulo1" method="post"> <!-- manca l'action perché i contenuti non verranno usati nella pagina stessa -->
+		<fieldset>
+			<legend>DATI ANAGRAFICI</legend>
+			NOME <input name="nome" type="text" class="casella" tabindex="1" size="15" maxlength="20" />
+			COGNOME <input name="cognome" type="text" class="casella" tabindex="2" size="15" maxlength="20" />
+			DATA DI NASCITA <input name="data" type="date" class="casella" tabindex="3" size="15" />
+			TEL. <input name="tel" type="tel" class="casella" tabindex="4" size="15" maxlength="15" />
+			EMAIL <input name="email" type="email" class="casella" tabindex="5" size="15" maxlength="40" />
+			<input name="button" type="button" id="submit" value="Invia" />
+		</fieldset>
+	</form>
+	<div id="risultato">
+		Risultato<br />
+		<form id="form2" name="modulo2"> <!-- form che simula un record (una riga) di database -->
+			<input name="uno" type="text" class="risultato" readonly placeholder="name" />
+			<input name="due" type="text" class="risultato" readonly placeholder="cognome" />
+			<input name="tre" type="text" class="risultato" readonly placeholder="data di nascita" />
+			<input name="quattro" type="text" class="risultato" readonly placeholder="telefono" />
+			<input name="cinque" type="text" class="risultato" readonly placeholder="email" />
+		</form>
+	</div>
+	<script>
+		document.getElementById("submit").addEventListener("click", function() {
+			document.modulo2.uno.value = document.modulo1.nome.value; // copio il nome immesso dall'utente
+			document.modulo2.due.value = document.modulo1.cognome.value; // copio il cognome
+			document.modulo2.tre.value = document.modulo1.data.value; // copio la data di nascita
+			document.modulo2.quattro.value = document.modulo1.tel.value; // copio il telefono
+			document.modulo2.cinque.value = document.modulo1.email.value; // copio l'email
+		});
+	</script>
+</body>
+</html>

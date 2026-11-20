@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form telefonia</title>
+    <style>
+        body {
+            background-color: #f0ff9a;
+            font-family: Verdana;
+            font-size: 14px;
+        }
+
+        #centro {
+            background-color: #1ff70e;
+            border: 1px dashed blue;
+            width: 600px;
+            height: auto;
+            margin: 30px auto; /* 30px top e bottom, auto left e right */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+        <div id="centro">
+        <form name="modulo" action="#" method="post"> <!--devo dichiarare action e method poiché il form è dotato di submit e non di button-->
+            Seleziona il tuo gestore telefonico<br />
+            <input type="radio" name="operatore" value="tim" id="tim" /> TIM<br />
+            <input type="radio" name="operatore" value="vodafone" id="vodafone" /> VODAFONE<br />
+            <input type="radio" name="operatore" value="windtre" id="windtre" /> WIND-TRE<br />
+            <input type="radio" name="operatore" value="altro" id="altro" /> Altro <input type="text" name="altroOperatore" disabled /><br />
+            <p>
+                <input type="checkbox" name="consenso" value="ok" id="consenso" checked /> Acconsento al trattamento dei dati personali
+            </p>
+            <input type="button" name="pulsante" value="Registrati" id="pulsante" />
+            <!--N.B.: sebbene usi un button, nel form ho action e method, poiché la funzione associata al button effettuerà anche il submit()-->
+        </form>
+    </div>
+    <script>
+    		// variabile di servizio per il programma
+    		let operator = false; // diventa true se seleziono un gestore telefonico (all'inizio nessun gestore selezionato)
+    		let recupero = ""; // qui salvo l'altro gestore se l'utente è indeciso
+    		let val; // qui salvo la scelta del radiobutton
+    		
+    		// costanti associate ai radiobutton
+    		const tim = document.getElementById("tim"); // rigo 27
+    		const vodafone = document.getElementById("vodafone"); // rigo 28
+    		const windtre = document.getElementById("windtre"); // rigo 29
+    		const altro = document.getElementById("altro"); // rigo 30
+    		
+    		// implemento la funzione sui radiobutton
+    		[tim, vodafone, windtre, altro].forEach(function(gestore) {
+    			gestore.addEventListener("click", scelta); // associo a tutti i radiobutton l'evento click che innesca scelta()
+    			function scelta() { // se entra in esecuzione scelta allora è stato premuto un radiobutton
+    				operator = true;
+    			
+    				// scelta() parte cliccando qualsiasi dei 4 radiobutton. devo risalire a quale è stato premuto
+    				for (i = 0; i < document.modulo.operatore.length; i++) { // vero e proprio ciclo di scansione della famiglia di radiobutton di name="operatore"; gestisco i radiobutton come un array (in realtà i radiobutton sono memorizzati proprio come array)
+    					
+    					if (document.modulo.operatore[i].checked == true) { // soltanto il radiobutton scelto sarà checked
+    						val = document.modulo.operatore[i].value; // a questo punto scelta() sa cosa è stato selezionato
+    						
+    						if (val == "altro") { // verifico se è stato scelto "Altro" per attivare la casella di testo
+    							document.modulo.altroOperatore.disabled = false; // input text attivato
+    							document.modulo.altroOperatore.value = recupero; // riscrivo l'ultimo gestore immesso, se esiste
+    							document.modulo.altroOperatore.focus(); // sposto il cursore nella casella di testo
+    						} else { // se è stato selzionato un gestore tra TIM, Vodafone e Wind-Tre
+    							recupero = document.modulo.altroOperatore.value; // salvo il gestore eventualmente immesso dall'utente
+    							document.modulo.altroOperatore.value = ""; // svuoto la casella di testo
+    							document.modulo.altroOperatore.disabled = true; // input text disattivato
+    						}
+    						
+    					}
+    				}
+    			}
+    		});
+    		
+    		// programmazione della checkbox
+    		document.getElementById("consenso").addEventListener("click", privacy);
+    		
+    		function privacy() {
+    			
+    			if (document.modulo.consenso.checked == false) {
+    				document.modulo.pulsante.disabled = true; // negando il consenso non ci si può registrare (rigo 34)
+    				alert("Se non accetti il trattamento dei dati personali, non avrai la possibilità di registrarti")
+    			} else {
+    				document.modulo.pulsante.disabled = false;
+    			}
+    			
+    		}
+    		
+    		// programmazione del button
+    		document.getElementById("pulsante").addEventListener("click", verifica);
+    		
+    		function verifica() {
+    			if (operator == false) { // sel'utente non ha indicato il proprio gestore telefonico
+    				alert("Attenzione! Non hai scelto un gestore telefonico!")
+    			} else { // ... il gestore è stato indicato, ma devo verificare se scegliendo altro ha immesso il gestore nell'input text
+    				
+    				if (val == "altro" && document.modulo.altroOperatore.value == "") { // input text lasciato vuoto
+    					document.modulo.altroOperatore.focus();
+    					alert("Specifica il gestore!");
+    				} else {
+    					document.modulo.submit(); // si invia il form all'action indicata nel suo tag
+    				}
+    			}
+    		}
+    </script>
+</body>
+</html>
